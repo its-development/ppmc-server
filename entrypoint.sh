@@ -1,4 +1,5 @@
 #!/bin/sh
+service ssh start
 set -e
 
 DOCKER_USER='dockeruser'
@@ -18,8 +19,6 @@ if ! id "$DOCKER_USER" >/dev/null 2>&1; then
     chmod -vR ug+rwx /opt/minecraft
     chown -vR $USER_ID:$GROUP_ID /data
 fi
-
-systemctl start ssh
 
 export HOME=/home/$DOCKER_USER
 exec gosu $DOCKER_USER:$DOCKER_GROUP java -jar -Xms$MEMORYSIZE -Xmx$MEMORYSIZE $JAVAFLAGS /opt/minecraft/paperspigot.jar $PAPERMC_FLAGS nogui

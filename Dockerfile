@@ -64,6 +64,11 @@ WORKDIR /data
 COPY /entrypoint.sh /opt/minecraft
 RUN chmod +x /opt/minecraft/entrypoint.sh
 
+# SHH Setup
+EXPOSE 22
+RUN apt-get update
+RUN apt-get install openssh-server -y && systemctl enable ssh
+
 # Entrypoint
 ENTRYPOINT ["/opt/minecraft/entrypoint.sh"]
 

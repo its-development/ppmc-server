@@ -4,7 +4,7 @@
 FROM eclipse-temurin:17-jre AS build
 RUN apt-get update -y && apt-get install -y curl jq
 
-ARG version=1.19.2
+ARG version=1.21.4
 
 
 ########################################################

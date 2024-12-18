@@ -18,7 +18,7 @@ RUN /download_paper.sh ${version}
 ########################################################
 ############## Running environment #####################
 ########################################################
-FROM eclipse-temurin:17-jre AS runtime
+FROM eclipse-temurin:21-jre AS runtime
 ARG TARGETARCH
 # Install gosu
 RUN set -eux; \
